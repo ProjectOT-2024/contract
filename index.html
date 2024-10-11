@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>質が悪い</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* ヘッダー */
+        .header {
+            background-color: #87CEFA;
+            color: white;
+            padding: 15px;
+            text-align: left;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .upload-container {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        /* ファイルアップロードのスタイル */
+        #file-upload {
+            width: 60%;
+            /* 横幅を適宜調整 */
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+        }
+
+        /* 虫眼鏡アイコン */
+        .search-icon {
+            display: inline-block;
+            background-color: #87CEFA;
+            padding: 10px;
+            border-radius: 50%;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        .search-icon:hover {
+            background-color: #00BFFF;
+        }
+
+        /* アイコンのスタイル */
+        .search-icon::before {
+            content: "\1F50D";
+            /* 虫眼鏡マーク */
+            font-size: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <h1>ファイルをアップロード</h1>
+    </div>
+    <div class="upload-container">
+        <!-- ファイルアップロードフォーム -->
+        <form action="{{ url_for('upload_file') }}" method="post" enctype="multipart/form-data">
+            <input id="file-upload" type="file" name="file" accept="image/*, application/pdf">
+            <!-- 虫眼鏡アイコン（送信ボタン） -->
+            <button type="submit" class="search-icon"></button>
+        </form>
+    </div>
+</body>
+
+</html>
